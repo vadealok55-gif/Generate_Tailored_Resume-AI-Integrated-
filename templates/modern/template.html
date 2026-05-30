@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{meta.fullName}} - Modern Resume</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar for personal data and skills -->
+        <aside class="sidebar">
+            <div class="profile">
+                <h1>{{meta.fullName}}</h1>
+                <p class="subtitle">{{meta.jobTitle}}</p>
+            </div>
+            
+            <div class="contact-section">
+                <h3>Contact</h3>
+                <p>{{meta.email}}</p>
+                <p>{{meta.phone}}</p>
+                <p>{{meta.location}}</p>
+                {{#if meta.linkedin}}<p>{{meta.linkedin}}</p>{{/if}}
+                {{#if meta.github}}<p>{{meta.github}}</p>{{/if}}
+            </div>
+
+            <div class="skills-sidebar">
+                {{#each sections}}
+                    {{#if (eq type "skills")}}
+                        {{#if visible}}
+                            <h3>Skills</h3>
+                            {{#each content}}
+                                <div class="skill-category">
+                                    <h4>{{category}}</h4>
+                                    <p>{{join skills ", "}}</p>
+                                </div>
+                            {{/each}}
+                        {{/if}}
+                    {{/if}}
+                {{/each}}
+            </div>
+        </aside>
+
+        <!-- Main section for work experience and education -->
+        <main class="main-content">
+            {{#each sections}}
+                {{#if visible}}
+                    {{#if (notEq type "skills")}}
+                        <section class="main-section">
+                            <h2>{{title}}</h2>
+                            
+                            {{#if (eq type "summary")}}
+                                <p class="summary-text">{{content}}</p>
+                            {{/if}}
+
+                            {{#if (eq type "experience")}}
+                                {{#each content}}
+                                    <div class="experience-item">
+                                        <div class="item-header">
+                                            <strong>{{role}}</strong>
+                                            <span class="date">{{startDate}} - {{endDate}}</span>
+                                        </div>
+                                        <div class="company">{{company}}{#if location}}, {{location}}{{/if}}</div>
+                                        <ul class="bullets">
+                                            {{#each bullets}}
+                                                <li class="{{#if highlighted}}highlight{{/if}}">{{text}}</li>
+                                            {{/each}}
+                                        </ul>
+                                    </div>
+                                {{/each}}
+                            {{/if}}
+
+                            {{#if (eq type "education")}}
+                                {{#each content}}
+                                    <div class="education-item">
+                                        <div class="item-header">
+                                            <strong>{{degree}}</strong>
+                                            <span class="date">{{startDate}} - {{endDate}}</span>
+                                        </div>
+                                        <div class="institution">{{institution}}{#if location}}, {{location}}{{/if}}</div>
+                                    </div>
+                                {{/each}}
+                            {{/if}}
+                        </section>
+                    {{/if}}
+                {{/if}}
+            {{/each}}
+        </main>
+    </div>
+</body>
+</html>

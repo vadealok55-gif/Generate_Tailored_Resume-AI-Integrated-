@@ -1,0 +1,105 @@
+body {
+  font-family: 'Arial', sans-serif;
+  color: #333333;
+  margin: 0;
+  padding: 0;
+  font-size: 10pt;
+  line-height: 1.4;
+  background-color: #ffffff;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 30%;
+  background-color: #f4f6fa;
+  padding: 30px 20px;
+  border-right: 1px solid #e1e4e8;
+}
+
+.sidebar h1 {
+  font-size: 18pt;
+  color: #1a1a2e;
+  margin: 0 0 5px 0;
+}
+
+.sidebar .subtitle {
+  font-size: 10pt;
+  color: #4361ee;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.sidebar h3 {
+  font-size: 11pt;
+  text-transform: uppercase;
+  color: #1a1a2e;
+  border-bottom: 2px solid #4361ee;
+  padding-bottom: 5px;
+  margin-top: 25px;
+}
+
+.sidebar p, .sidebar .skill-category {
+  font-size: 9pt;
+  margin: 5px 0;
+  color: #555555;
+}
+
+.skill-category h4 {
+  margin: 10px 0 2px 0;
+  font-size: 9.5pt;
+  color: #333;
+}
+
+.main-content {
+  width: 70%;
+  padding: 30px;
+}
+
+.main-section {
+  margin-bottom: 25px;
+}
+
+.main-section h2 {
+  font-size: 13pt;
+  color: #1a1a2e;
+  text-transform: uppercase;
+  border-bottom: 1.5px solid #4361ee;
+  padding-bottom: 3px;
+  margin-bottom: 12px;
+}
+
+.experience-item, .education-item {
+  margin-bottom: 15px;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10pt;
+}
+
+.company, .institution {
+  font-style: italic;
+  font-size: 9.5pt;
+  color: #666666;
+  margin-bottom: 5px;
+}
+
+.bullets {
+  margin-top: 5px;
+  padding-left: 20px;
+}
+
+.bullets li {
+  margin-bottom: 3px;
+}
+
+.bullets li.highlight {
+  background-color: #eef2ff;
+  border-left: 2px solid #4361ee;
+  padding-left: 4px;
+}

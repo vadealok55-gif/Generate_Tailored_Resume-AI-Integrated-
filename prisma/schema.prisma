@@ -1,0 +1,77 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String    @id @default(cuid())
+  clerkId   String    @unique
+  email     String    @unique
+  name      String?
+  avatar    String?
+  createdAt DateTime  @default(now())
+  projects  Project[]
+}
+
+model Project {
+  id             String         @id @default(cuid())
+  userId         String
+  user           User           @relation(fields: [userId], references: [id])
+  jobTitle       String
+  jobDescription String         @db.Text
+  companyName    String?
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  resumes        Resume[]
+  chatMessages   ChatMessage[]
+  uploads        UploadedFile[]
+}
+
+model Resume {
+  id          String              @id @default(cuid())
+  projectId   String
+  project     Project             @relation(fields: [projectId], references: [id])
+  version     Int                 @default(1)
+  content     Json                // full Resume JSON object matching Resume type
+  isActive    Boolean             @default(true)
+  createdAt   DateTime            @default(now())
+  generations SectionGeneration[]
+  @@index([projectId, version])
+}
+
+model SectionGeneration {
+  id               String   @id @default(cuid())
+  resumeId         String
+  resume           Resume   @relation(fields: [resumeId], references: [id])
+  sectionId        String
+  sectionType      String
+  inputMode        String   // quick_prompt | structured
+  userInput        Json
+  generatedContent Json
+  accepted         Boolean  @default(false)
+  createdAt        DateTime @default(now())
+}
+
+model ChatMessage {
+  id        String   @id @default(cuid())
+  projectId String
+  project   Project  @relation(fields: [projectId], references: [id])
+  role      String   // user | assistant | system
+  content   String   @db.Text
+  createdAt DateTime @default(now())
+}
+
+model UploadedFile {
+  id        String   @id @default(cuid())
+  projectId String
+  project   Project  @relation(fields: [projectId], references: [id])
+  fileName  String
+  filePath  String
+  fileType  String
+  parsedText String  @db.Text
+  createdAt DateTime @default(now())
+}

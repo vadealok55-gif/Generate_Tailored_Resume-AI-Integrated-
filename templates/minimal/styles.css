@@ -1,0 +1,84 @@
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: #333333;
+  margin: 0;
+  padding: 40px;
+  font-size: 10.5pt;
+  line-height: 1.5;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24pt;
+  color: #111111;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-size: 12pt;
+  color: #555555;
+  margin: 5px 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.contact {
+  font-size: 9.5pt;
+  color: #666666;
+}
+
+.resume-section {
+  margin-bottom: 20px;
+}
+
+.resume-section h2 {
+  font-size: 12pt;
+  color: #222222;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #222222;
+  padding-bottom: 2px;
+  letter-spacing: 0.5px;
+}
+
+.experience-item, .education-item {
+  margin-bottom: 12px;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-subheader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9.5pt;
+  color: #555555;
+}
+
+.bullet-list, .achievements-list {
+  margin-top: 4px;
+  padding-left: 20px;
+  margin-bottom: 5px;
+}
+
+.bullet-list li, .achievements-list li {
+  margin-bottom: 2px;
+}
+
+.bullet-list li.highlighted {
+  font-weight: 500;
+}
+
+.skills-group {
+  margin-bottom: 6px;
+  font-size: 10pt;
+}

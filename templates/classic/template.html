@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{meta.fullName}} - Classic Resume</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header>
+        <h1>{{meta.fullName}}</h1>
+        <p class="subtitle">{{meta.jobTitle}}</p>
+        <p class="contact">
+            {{meta.email}} | {{meta.phone}} | {{meta.location}}
+            {{#if meta.website}} | {{meta.website}}{{/if}}
+            {{#if meta.linkedin}} | {{meta.linkedin}}{{/if}}
+            {{#if meta.github}} | {{meta.github}}{{/if}}
+        </p>
+    </header>
+
+    {{#each sections}}
+        {{#if visible}}
+            <section class="resume-section">
+                <h2>{{title}}</h2>
+                
+                {{#if (eq type "summary")}}
+                    <p class="summary-text">{{content}}</p>
+                {{/if}}
+
+                {{#if (eq type "experience")}}
+                    {{#each content}}
+                        <div class="experience-item">
+                            <div class="item-header">
+                                <span class="item-role"><strong>{{role}}</strong></span>
+                                <span class="item-date">{{startDate}} - {{endDate}}</span>
+                            </div>
+                            <div class="item-subheader">
+                                <span class="item-company"><em>{{company}}</em></span>
+                                {{#if location}}<span class="item-location">{{location}}</span>{{/if}}
+                            </div>
+                            <ul class="bullet-list">
+                                {{#each bullets}}
+                                    <li class="{{#if highlighted}}highlighted{{/if}}">{{text}}</li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    {{/each}}
+                {{/if}}
+
+                {{#if (eq type "skills")}}
+                    {{#each content}}
+                        <div class="skills-group">
+                            <strong>{{category}}:</strong> {{join skills ", "}}
+                        </div>
+                    {{/each}}
+                {{/if}}
+
+                {{#if (eq type "education")}}
+                    {{#each content}}
+                        <div class="education-item">
+                            <div class="item-header">
+                                <span><strong>{{degree}}</strong></span>
+                                <span>{{startDate}} - {{endDate}}</span>
+                            </div>
+                            <div>
+                                <span><em>{{institution}}</em></span>
+                                {{#if location}}<span>, {{location}}</span>{{/if}}
+                            </div>
+                        </div>
+                    {{/each}}
+                {{/if}}
+            </section>
+        {{/if}}
+    {{/each}}
+</body>
+</html>

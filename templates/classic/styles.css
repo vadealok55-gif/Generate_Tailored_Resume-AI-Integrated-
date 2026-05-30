@@ -1,0 +1,72 @@
+body {
+  font-family: 'Times New Roman', Times, serif;
+  color: #111111;
+  margin: 0;
+  padding: 45px;
+  font-size: 11pt;
+  line-height: 1.4;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28pt;
+  font-family: Georgia, serif;
+}
+
+.subtitle {
+  font-size: 13pt;
+  color: #333333;
+  margin: 5px 0;
+  font-style: italic;
+}
+
+.contact {
+  font-size: 9.5pt;
+  color: #555555;
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+  padding: 5px 0;
+  margin-top: 10px;
+}
+
+.resume-section {
+  margin-bottom: 22px;
+}
+
+.resume-section h2 {
+  font-size: 13pt;
+  text-align: center;
+  border-bottom: 1px solid #111111;
+  padding-bottom: 2px;
+  margin-bottom: 10px;
+  font-family: Georgia, serif;
+}
+
+.experience-item, .education-item {
+  margin-bottom: 14px;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-subheader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10pt;
+}
+
+.bullet-list {
+  margin-top: 5px;
+  padding-left: 20px;
+}
+
+.bullet-list li {
+  margin-bottom: 2px;
+}
